@@ -3,11 +3,14 @@ import pandas as pd
 
 print("arguments", sys.argv)
 
-day = int(sys.argv[1])
-print(f"Running pipeline for day {day}")
+month = int(sys.argv[1])
+print(f"Running pipeline for month {month}")
 
 
-df = pd.DataFrame({"A": [1, 2], "B": [3, 4]})
+df = pd.DataFrame({"days": [1, 2], "num_passengers": [3, 4]})
+df['month'] = month
+
 print(df.head())
+print(f"Running pipeline for month = {month}")
 
-df.to_parquet(f"output_day_{sys.argv[1]}.parquet")
+df.to_parquet(f"output_{month}.parquet")
